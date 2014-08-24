@@ -1,0 +1,1 @@
+web: gunicorn linkchecker:app --log-file -
