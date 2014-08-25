@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LinkChecker</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  </head>
-  <body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LinkChecker</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    </head>
 
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <body>
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                  LinkChecker
+                </a>
+                <ul class="nav navbar-nav">
+                  <li><a href="/">Submit a URL</a></li>
+                </ul>
+
+            </div>
+        </nav>
+
         <div class="container">
-            <a class="navbar-brand" href="/">
-              LinkChecker
-            </a>
-            <ul class="nav navbar-nav">
-              <li><a href="/">Submit a URL</a></li>
-            </ul>
+
+            <div class="row">
+                <div class="col-sm-10">
+                <h3>Submit a url</h3>
+                <form class="form-horizontal" role="form" method="post" action="/result/">
+                    <div class="form-group">
+                      <div class="col-sm-6">
+                        <input type="url" class="form-control" id="url" placeholder="URL" name="url">
+                      </div>
+                      <div class="col-sm-2">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                      </div>
+                    </div>
+                </form>
+                </div> 
+           </div>
+
+            <div class="row">
+                <div class="col-sm-10">
+                    <h3>There are {{ num_links }} links to Wikipedia in <a target="_blank" href="{{ url }}">{{ url }}</a></h3>
+                    <table class="table table-striped">
+                        <th>URL</th>
+                        {% for link in links %}
+                          <tr><td><a href="{{ link.href }}">{{ link.href }}</td></tr>
+                        {% endfor %}
+                    </table>
+                    <p>Brought to you by <a href="https://github.com/pastpages/storytracker">StoryTracker</a>
+                       and <a href="http://www.heroku.com/">Heroku</a>.
+                        Source on <a href="https://github.com/dwillis/linkchecker">Github</a>.
+                    </p>
+                </div>
+            </div>
 
         </div>
-    </nav>
+    </body>
 
-	<div class="container">
-    <h3>Submit a url</h3>
-  <form class="form-horizontal" role="form" method="post" action="/result/">
-    <div class="form-group">
-      <div class="col-sm-10">
-        <input type="url" class="form-control" id="url" placeholder="URL" name="url">
-      </div>
-    <div>
-    <div class="form-group">
-      <div class="col-sm-10">
-        <button type="submit" class="btn btn-default">Submit</button>
-      </div>
-    </div>
-  </form>
-
-  <h3>There are {{ num_links }} links to Wikipedia in <a href="{{ url }}">{{ url }}</a><h3>
-    <table class="table table-striped">
-    <th>URL</th>
-    {% for link in links %}
-      <tr><td><a href="{{ link.href }}">{{ link.href }}</td></tr>
-    {% endfor %}
-    </table>
-    <p>Brought to you by <a href="https://github.com/pastpages/storytracker">StoryTracker</a> and <a href="http://www.heroku.com/">Heroku</a>. Source on <a href="https://github.com/dwillis/times_dialect">Github</a>.</p>
-	</div>
-  </body>
 </html>
