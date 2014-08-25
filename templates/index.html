@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LinkChecker</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  </head>
-  <body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LinkChecker</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    </head>
+    <body>
 
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
@@ -23,24 +24,31 @@
     </nav>
 
 
-	<div class="container">
-    <h3>Submit a url</h3>
-  <form class="form-horizontal" role="form" method="post" action="/result/">
-    <div class="form-group">
-      <div class="col-sm-10">
-        <input type="url" class="form-control" id="url" placeholder="URL" name="url">
-      </div>
-    <div>
-    <div class="form-group">
-      <div class="col-sm-10">
-        <button type="submit" class="btn btn-default">Submit</button>
-      </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-10">
+            <h3>Submit a url</h3>
+            <form class="form-horizontal" role="form" method="post" action="/result/">
+                <div class="form-group">
+                  <div class="col-sm-6">
+                    <input type="url" class="form-control" id="url" placeholder="URL" name="url">
+                  </div>
+                  <div class="col-sm-2">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </div>
+                </div>
+            </form>
+            </div> 
+        </div>
+
+        <div class="row">
+            <div class="col-sm-10">
+            <h3>What is this?</h3>
+            <p>LinkChecker searches the contents of a URL for links to Wikipedia articles.</p>
+            </div>
+        </div>
+
     </div>
-  </form>
-
-<h3>What is this?</h3>
-<p>LinkChecker searches the contents of a URL for links to Wikipedia articles.</p>
-
-	</div>
   </body>
 </html>
