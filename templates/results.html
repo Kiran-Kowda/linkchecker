@@ -10,18 +10,15 @@
 
     <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
-
             <a class="navbar-brand" href="/">
               LinkChecker
             </a>
-
             <ul class="nav navbar-nav">
               <li><a href="/">Submit a URL</a></li>
             </ul>
 
         </div>
     </nav>
-
 
 	<div class="container">
     <h3>Submit a url</h3>
@@ -37,6 +34,15 @@
       </div>
     </div>
   </form>
+
+  <h3>There are {{ num_links }} links to Wikipedia in <a href="{{ url }}">{{ url }}</a><h3>
+    <table class="table table-striped">
+    <th>User</th><th>Text</th><th>RT</th><th>Favs</th>
+    {% for link in links %}
+      <tr><td><a href="{{ link.href }}">{{ link.href }}</td></tr>
+    {% endfor %}
+    </table>
+    <p>Brought to you by <a href="https://github.com/nytimes/times_wire">TimesWire</a> and <a href="http://www.heroku.com/">Heroku</a>. Source on <a href="https://github.com/dwillis/times_dialect">Github</a>.</p>
 	</div>
   </body>
 </html>
