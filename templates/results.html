@@ -37,12 +37,12 @@
 
   <h3>There are {{ num_links }} links to Wikipedia in <a href="{{ url }}">{{ url }}</a><h3>
     <table class="table table-striped">
-    <th>User</th><th>Text</th><th>RT</th><th>Favs</th>
+    <th>URL</th>
     {% for link in links %}
       <tr><td><a href="{{ link.href }}">{{ link.href }}</td></tr>
     {% endfor %}
     </table>
-    <p>Brought to you by <a href="https://github.com/nytimes/times_wire">TimesWire</a> and <a href="http://www.heroku.com/">Heroku</a>. Source on <a href="https://github.com/dwillis/times_dialect">Github</a>.</p>
+    <p>Brought to you by <a href="https://github.com/pastpages/storytracker">StoryTracker</a> and <a href="http://www.heroku.com/">Heroku</a>. Source on <a href="https://github.com/dwillis/times_dialect">Github</a>.</p>
 	</div>
   </body>
 </html>
