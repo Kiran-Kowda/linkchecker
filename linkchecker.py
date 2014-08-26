@@ -15,8 +15,8 @@ def index():
 def result():
     u = request.form['url']
     url = storytracker.archive(u)
-    links = [h for h in url.hyperlinks if 'wikipedia' in h.href]
-    return render_template('results.html', links=links, num_links = len(links), url=u)
+    links = [h for h in url.hyperlinks if request.form['link_type'] in h.href]
+    return render_template('results.html', links=links, num_links = len(links), url=u, link_type=request.form['link_type'])
 
 
 if __name__ == "__main__":
